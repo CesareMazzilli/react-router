@@ -1,23 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
-import AppLayout from "./components/AppLayout";
-import PostList from "./components/PostList";
-import ContactUs from "./components/ContactUs";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/pages/Home'
+import ChiSiamo from './components/pages/ChiSiamo';
+import ListaPost from './components/pages/ListaPost.jsx';
+import DetailPost from './components/pages/DetailPost';
+import AppLayout from "./components/AppLayout"
 
-function App() {
-return (
-  <div>
-    <Router>
-      <Routes>
-        <Route element={<AppLayout/>}>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/ContactUs" element={<ContactUs/>}/>
-        <Route path="/PostList" element={<PostList/>}/>
-        </Route>
-      </Routes>
-    </Router>
-  </div>
-)
-};
 
-export default App;
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+export default function App() {
+ return (
+   <BrowserRouter>
+   <Routes>
+       <Route element={<AppLayout/>}>
+           <Route path="/" element={<Home/>}/>
+           <Route path="/ChiSiamo" element={<ChiSiamo/>}/>
+           <Route path="/ListaPost" element={<ListaPost/>}/>
+           <Route path="/ListaPost/:id" element={<DetailPost/>}/>
+       </Route>
+   </Routes>
+   </BrowserRouter>
+ )  
+}
